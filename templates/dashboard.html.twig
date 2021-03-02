@@ -1,0 +1,23 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}
+Transaction dashboard
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% include 'dashboard/_card.html.twig' with {
+            number: transactionsCount,
+            caption: 'Transactions this year',
+            link: path('transactions_list'),
+            id: 'transaction_count'
+        } %}
+        {% include 'dashboard/_card.html.twig' with {
+            number: companiesRegistered,
+            caption: 'Companies registered this year',
+            color: 'primary',
+            link: path('companies_list'),
+            id: 'company_count'
+        } %}
+    </div>
+{% endblock %}

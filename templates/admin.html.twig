@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="{{ path('dashboard_index') }}">Transaction Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('transactions_list') }}">Transactions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('companies_list') }}">Companies</a>
+                </li>
+            </ul>
+            <a href="{{ path('logout') }}" class="btn btn-danger my-2 my-sm-0"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </div>
+    </nav>
+    <div class="container">
+        {% for label, messages in app.flashes(['success', 'warning']) %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <h1>{% block title %}{% endblock %} <div class="float-right">{% block actions %}{% endblock %}</div></h1>
+        {% block content %}{% endblock %}
+    </div>
+
+
+{% endblock %}

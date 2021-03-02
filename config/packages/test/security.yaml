@@ -1,0 +1,13 @@
+security:
+    providers:
+        users_in_memory:
+            memory:
+                users:
+                    test_admin:
+                        roles: ['ROLE_ADMIN']
+                        password: 'passw0rd'
+    encoders:
+        Symfony\Component\Security\Core\User\User: 'plaintext'
+    firewalls:
+        main:
+            http_basic: ~

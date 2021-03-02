@@ -1,0 +1,7 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}{% if company|default %}Edit Company: {{ company.name }}{% else %}New Company{% endif %}{% endblock %}
+
+{% block content %}
+    {{ form(form) }}
+{% endblock %}

@@ -1,0 +1,27 @@
+parameters:
+    env(MONGODB_URL): ''
+    env(MONGODB_DB): ''
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Document/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
+
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: ['controller.service_arguments']
+
+    doctrine.odm.param_converter:
+        class: Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter
+        tags:
+            - {name: request.param_converter, converter: doctrine.odm}
+        arguments: ['@doctrine_mongodb']

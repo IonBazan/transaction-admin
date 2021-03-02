@@ -1,0 +1,3 @@
+transaction.deleted: 'Transaction %id% has been deleted!'
+transaction.updated: 'Transaction %id% has been updated!'
+transaction.created: 'Transaction %id% has been created!'

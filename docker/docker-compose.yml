@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  mongodb:
+    image: mongo:4
+    ports:
+      - '${MONGO_PORT}:27017'
+
+  web:
+    build: .
+    ports:
+      - '${HTTP_PORT}:8000'
+    volumes:
+      - '..:/app'

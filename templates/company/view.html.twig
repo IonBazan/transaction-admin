@@ -1,0 +1,43 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}
+Company: {{ company.id }}
+<a href="{{ path('companies_edit', {id: company.id }) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit</a>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">ID</div>
+        <div class="col-sm-10">{{ company.id }}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">Name</div>
+        <div class="col-sm-10">{{ company.name }}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">Tax number</div>
+        <div class="col-sm-10">{{ company.taxNumber }}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">Street</div>
+        <div class="col-sm-10">{{ company.address.street }}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">ZIP</div>
+        <div class="col-sm-10">{{ company.address.zip }}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">City</div>
+        <div class="col-sm-10">{{ company.address.city }}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">Country</div>
+        <div class="col-sm-10">{{ company.address.country }}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 font-weight-bold">Phone number</div>
+        <div class="col-sm-10">{{ company.address.phoneNumber }}</div>
+    </div>
+    <h2>Company transactions:</h2>
+    {% include 'transaction/_list.html.twig' with {'transactions': company.transactions} %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Transactions list{% endblock %}
+{% block actions %}
+<a href="{{ path('transactions_create') }}" class="btn btn-success"><i class="bi bi-plus-circle"></i> Create</a>
+{% endblock %}
+
+{% block content %}
+    {{ form(filtersForm) }}
+{% include 'transaction/_list.html.twig' %}
+{% endblock %}
