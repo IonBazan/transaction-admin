@@ -1,0 +1,43 @@
+name: Tests
+on: [push, pull_request]
+env:
+  APP_ENV: test
+  MONGODB_URL: 'mongodb://127.0.0.1:27017'
+jobs:
+  build:
+    services:
+      mongodb:
+        image: mongo:4
+        ports:
+          - 27017:27017
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: mbstring, xml, hash, ctype, iconv, curl, pcov, mongodb
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache composer dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Install Composer dependencies
+        run: composer install -n
+      - name: Prepare database
+        run: |
+          bin/console doctrine:mongodb:schema:update -n
+      - name: Run Tests
+        run: bin/phpunit
+#      - name: Upload coverage to Codecov
+#        uses: codecov/codecov-action@v1
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          file: clover.xml

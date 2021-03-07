@@ -26,7 +26,6 @@ class TransactionControllerTest extends DatabaseTest
         $crawler = $this->client->request(Request::METHOD_GET, '/transactions/list');
         self::assertResponseIsSuccessful();
         self::assertSame(3, $crawler->filter('#transaction_list > tbody > tr')->count());
-        self::assertSelectorTextSame('#transaction_summary', 'Currency Total amount USD 12.00 SGD 22.30');
     }
 
     public function testItFiltersList(): void

@@ -11,3 +11,5 @@ services:
       - '${HTTP_PORT}:8000'
     volumes:
       - '..:/app'
+    environment:
+      MONGODB_URL: 'mongodb://mongodb:27017'
