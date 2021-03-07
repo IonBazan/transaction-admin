@@ -5,6 +5,9 @@ ENV APP_ENV=prod
 RUN apt-get update \
     && apt-get install -y -qq \
         git \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        openssl \
         unzip \
     && yes '' | pecl install -f mongodb \
     && docker-php-ext-enable mongodb
