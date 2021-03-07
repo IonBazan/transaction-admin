@@ -1,0 +1,8 @@
+build:
+  docker:
+    web: Dockerfile
+release:
+  image: web
+  command:
+    - "php bin/console doctrine:mongodb:fixtures:load -n"
+
