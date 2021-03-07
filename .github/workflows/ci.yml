@@ -36,8 +36,8 @@ jobs:
           bin/console doctrine:mongodb:schema:update -n
       - name: Run Tests
         run: bin/phpunit
-#      - name: Upload coverage to Codecov
-#        uses: codecov/codecov-action@v1
-#        with:
-#          token: ${{ secrets.CODECOV_TOKEN }}
-#          file: clover.xml
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: clover.xml

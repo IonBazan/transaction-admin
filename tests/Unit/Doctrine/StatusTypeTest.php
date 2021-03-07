@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Tests\Doctrine;
+declare(strict_types=1);
+
+namespace App\Tests\Unit\Doctrine;
 
 use App\Doctrine\StatusType;
 use App\Transaction\Status;

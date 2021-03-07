@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Functional\Controller;
 
 use App\Document\Transaction;
-use App\Tests\DatabaseTest;
+use App\Tests\Functional\DatabaseTest;
 use App\Transaction\Status;
 use DateTime;
 use Symfony\Component\DomCrawler\Crawler;

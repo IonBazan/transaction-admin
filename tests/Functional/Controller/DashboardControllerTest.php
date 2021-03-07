@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional\Controller;
 
-use App\Document\Money;
-use App\Tests\DatabaseTest;
-use App\Transaction\Status;
+use App\Tests\Functional\DatabaseTest;
 use Symfony\Component\HttpFoundation\Request;
 
 class DashboardControllerTest extends DatabaseTest

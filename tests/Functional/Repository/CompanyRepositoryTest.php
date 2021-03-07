@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Repository;
+namespace App\Tests\Functional\Repository;
 
 use App\Repository\CompanyRepository;
-use App\Tests\DatabaseTest;
+use App\Tests\Functional\DatabaseTest;
 
 class CompanyRepositoryTest extends DatabaseTest
 {

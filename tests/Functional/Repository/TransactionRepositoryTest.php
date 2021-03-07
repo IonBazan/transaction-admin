@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Repository;
+namespace App\Tests\Functional\Repository;
 
 use App\Document\Money;
 use App\Filters\TransactionFilters;
 use App\Repository\TransactionRepository;
-use App\Tests\DatabaseTest;
+use App\Tests\Functional\DatabaseTest;
 use App\Transaction\Status;
 
 class TransactionRepositoryTest extends DatabaseTest
