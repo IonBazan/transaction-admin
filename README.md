@@ -1,7 +1,7 @@
 # Transaction Admin
 [![PHP 8.0+](https://img.shields.io/badge/PHP-8.0+-informational.svg)](http://laravel.com)
 ![Tests](https://github.com/IonBazan/transaction-admin/workflows/Tests/badge.svg)
-[![codecov](https://codecov.io/gh/IonBazan/transaction-admin/branch/master/graph/badge.svg)](https://codecov.io/gh/IonBazan/object-store)
+[![codecov](https://codecov.io/gh/IonBazan/transaction-admin/branch/master/graph/badge.svg)](https://codecov.io/gh/IonBazan/transaction-admin)
 
 This application provides a simple dashboard to manage companies and transactions
 
